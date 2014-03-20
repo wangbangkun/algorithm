@@ -6,7 +6,7 @@
 import java.util.Scanner;
 import java.io.BufferedInputStream;
 
-public class Test {
+public class Equivalence {
     private static String CHARSET = "UTF-8";
     public static void main(String [] args)
     {
