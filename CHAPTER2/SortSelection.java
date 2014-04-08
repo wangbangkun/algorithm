@@ -6,12 +6,17 @@ public class SortSelection<Item extends Comparable<Item>>
     {
         for (int i = 0; i < a.length; i++)
         {
-            for (int j = i; j < a.length; j++)
+            int min = i;
+            for (int j = i + 1; j < a.length; j++)
             {
-                if (this.more(a[i], a[j]))
+                if (this.more(a[min], a[j]))
                 {
-                    this.swap(a, i, j);
+                    min = j;
                 }
+            }
+            if (min != i)
+            {
+                this.swap(a, i, min);
             }
         }
         return a;
