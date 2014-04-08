@@ -1,7 +1,8 @@
 
-public class SortSelection {
+public class SortSelection<Item extends Comparable<Item>>
+{
 
-    public Comparable [] sort(Comparable [] a)
+    public Item [] sort(Item [] a)
     {
         for (int i = 0; i < a.length; i++)
         {
@@ -16,26 +17,34 @@ public class SortSelection {
         return a;
     }
 
-    private boolean more(Comparable v, Comparable w)
+    private boolean more(Item v, Item w)
     {
         return v.compareTo(w) > 0;
     }
 
-    private void swap(Comparable [] a, int i, int j)
+    private void swap(Item [] a, int i, int j)
     {
-        Comparable tmp = a[i];
+        Item tmp = a[i];
         a[i] = a[j];
         a[j] = tmp;
     }
 
     public static void main(String [] args)
     {
-        SortSelection ss = new SortSelection();
-        Integer [] arr = {11, 10, 12, 9, 6, 8, 9, 10, 3, 4, 5, 1, 2, 7, 5, 2, 1, 6};
-        Comparable [] newArr = ss.sort(arr);
-        for (int i = 0; i < newArr.length; i++)
+        SortSelection<Integer> ssi = new SortSelection<Integer>();
+        Integer [] iArr = {11, 10, 12, 9, 6, 8, 9, 10, 3, 4, 5, 1, 2, 7, 5, 2, 1, 6};
+        Integer [] newIngArr = ssi.sort(iArr);
+        for (int i = 0; i < newIngArr.length; i++)
         {
-            System.out.print(newArr[i] + " ");
+            System.out.print(newIngArr[i] + " ");
+        }
+        System.out.println();
+        SortSelection<String> sss = new SortSelection<String>();
+        String [] sArr = {"Z", "B", "A", "a", "C", "c", "X", "d", "W", "v", "Y"};
+        String [] newStrArr = sss.sort(sArr);
+        for (String s : newStrArr)
+        {
+            System.out.print(s + " ");
         }
     }
 }
